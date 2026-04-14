@@ -27,6 +27,11 @@ Do NOT create a local `learnings.md` or `hri-stack-learnings.md` in this repo. I
 - **Changed:** Created repo, deployed March 2026 board update as `index.html`. Also includes `board-report-2026-03.md` (an earlier markdown draft — the HTML version is the authoritative board deliverable).
 - **Watch out:** Future editions just replace `index.html`. No versioning of old reports in the repo (user said "we'll just replace it"). If archiving past editions becomes needed, consider keeping them as dated files.
 
+**[2026-04-14 | Bill | April board update + landing page]**
+- **Decided:** Switched from single-file replacement to a card-based landing page at `index.html`. Each monthly update is now a separate dated HTML file (e.g., `board-update-april-2026.html`). Landing page has clickable cards with month title, snippet, and link. This replaces the prior model of overwriting `index.html` each month.
+- **Changed:** Created April 2026 board update with edits to financials (net deficit featured at -$283K vs ~-$270K budget target, removed legacy and program ratio stat boxes), LepVax section (added program ratio pressure language from GHIT grant loss), and closing text (Bill's South Kivu / 708 people narrative). Renamed March report from `index.html` to `board-update-march-2026.html`. New `index.html` is the card-based landing page with HRI logo. Grid column count updated from 3 to 2 for the financials stat strip.
+- **Watch out:** When adding future months, add a new card to `index.html` and a new dated HTML file. Cards should go newest-first. The stat-strip grid is now `repeat(2, 1fr)` — if a future report needs 3 stat boxes, update accordingly.
+
 ---
 
 ## Session Start
