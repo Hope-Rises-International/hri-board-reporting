@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hope Rises International — Policy 4.0 Spring Monitoring Walkthrough</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --tide: #1E5773;
+    --rising-sun: #F26044;
+    --golden: #BC893F;
+    --restore: #97CBF0;
+    --empower: #302625;
+    --cleanse: #F7EDE8;
+    --green-easy: #2a9d5c;
+    --amber-medium: #d4880f;
+    --red-discussion: #F26044;
+    --purple-flag: #7B4FBF;
+    --slate-data: #5A6977;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Golos Text', sans-serif;
+    color: var(--empower);
+    background: #f4f1ee;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 0 60px rgba(0,0,0,0.08);
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--tide);
+    padding: 28px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .header-icon { width: 44px; height: 44px; flex-shrink: 0; }
+  .header-icon svg { width: 100%; height: 100%; }
+  .header-name {
+    font-size: 15px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+  }
+  .header-label {
+    color: var(--cleanse);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: right;
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+
+  /* ── DIVIDERS ── */
+  .divider {
+    height: 4px;
+    background: linear-gradient(90deg, var(--tide), var(--restore), var(--golden));
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--tide) 0%, #2a7a9e 50%, #1a4a5e 100%);
+    padding: 56px 48px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: rgba(151,203,240,0.08);
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--restore);
+    margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-size: 32px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .hero-sub {
+    font-size: 16px;
+    color: var(--restore);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .hero-meta {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 18px;
+  }
+
+  /* ── OVERVIEW SECTION ── */
+  .overview {
+    padding: 40px 48px;
+    background: var(--cleanse);
+  }
+  .overview h2 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--tide);
+    margin-bottom: 16px;
+  }
+  .overview p {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+  .overview p:last-child { margin-bottom: 0; }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .flag-legend {
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid rgba(30,87,115,0.1);
+  }
+  .flag-legend h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--tide);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .flag-legend p {
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 4px;
+  }
+  .flag-legend p:last-child { margin-bottom: 0; }
+
+  /* ── POLICY GROUP (4.2, 4.3, etc.) ── */
+  .policy-group-header {
+    background: var(--tide);
+    padding: 36px 48px;
+    position: relative;
+  }
+  .policy-group-header::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 5px;
+    background: var(--golden);
+  }
+  .policy-group-number {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--restore);
+    margin-bottom: 6px;
+  }
+  .policy-group-header h2 {
+    font-size: 26px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .policy-group-subtitle {
+    font-size: 14px;
+    color: var(--restore);
+    font-weight: 500;
+  }
+  .policy-group-context {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    font-style: italic;
+  }
+  .policy-group-count {
+    font-size: 13px;
+    color: var(--restore);
+    margin-top: 10px;
+    opacity: 0.8;
+  }
+
+  /* ── SUB-POLICY CARD ── */
+  .sub-policy {
+    padding: 32px 48px;
+    border-bottom: 1px solid rgba(30,87,115,0.08);
+  }
+  .sub-policy:last-child { border-bottom: none; }
+
+  .sub-policy-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 6px;
+  }
+  .sub-policy-number {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--tide);
+    line-height: 1.1;
+    flex-shrink: 0;
+  }
+  .sub-policy-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--tide);
+    line-height: 1.4;
+    flex: 1;
+    padding-top: 4px;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .badge--easy { background: var(--green-easy); }
+  .badge--medium { background: var(--amber-medium); }
+  .badge--discussion { background: var(--red-discussion); }
+  .badge--flag { background: var(--purple-flag); }
+  .badge--data { background: var(--slate-data); }
+
+  .sub-policy-context {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    font-style: italic;
+    padding-left: 0;
+  }
+
+  .evidence-box {
+    border-left: 3px solid var(--tide);
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    background: rgba(30,87,115,0.03);
+    border-radius: 0 8px 8px 0;
+  }
+  .evidence-box h4 {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--tide);
+    margin-bottom: 10px;
+  }
+  .evidence-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  .evidence-box li {
+    font-size: 14px;
+    line-height: 1.65;
+    padding: 3px 0 3px 18px;
+    position: relative;
+    color: var(--empower);
+  }
+  .evidence-box li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 12px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--restore);
+  }
+
+  .discussion-box {
+    border-left: 3px solid var(--rising-sun);
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    background: rgba(242,96,68,0.04);
+    border-radius: 0 8px 8px 0;
+  }
+  .discussion-box h4 {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rising-sun);
+    margin-bottom: 10px;
+  }
+  .discussion-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  .discussion-box li {
+    font-size: 14px;
+    line-height: 1.65;
+    padding: 3px 0 3px 18px;
+    position: relative;
+    color: var(--empower);
+  }
+  .discussion-box li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 12px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--rising-sun);
+  }
+
+  .flag-box {
+    border-left: 3px solid var(--purple-flag);
+    padding: 12px 20px;
+    margin-bottom: 16px;
+    background: rgba(123,79,191,0.04);
+    border-radius: 0 8px 8px 0;
+  }
+  .flag-box p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--purple-flag);
+    font-weight: 600;
+  }
+
+  .footer-prompt {
+    text-align: center;
+    font-size: 12px;
+    font-style: italic;
+    color: #888;
+    padding-top: 4px;
+  }
+
+  /* ── TABLE OF CONTENTS ── */
+  .toc {
+    padding: 32px 48px;
+    background: #fff;
+  }
+  .toc h2 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--tide);
+    margin-bottom: 16px;
+  }
+  .toc-group {
+    margin-bottom: 12px;
+  }
+  .toc-group-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--tide);
+    margin-bottom: 4px;
+  }
+  .toc-group-title a {
+    color: var(--tide);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(30,87,115,0.2);
+  }
+  .toc-group-title a:hover { border-bottom-color: var(--tide); }
+  .toc-items {
+    padding-left: 18px;
+  }
+  .toc-items a {
+    font-size: 13px;
+    color: var(--empower);
+    text-decoration: none;
+    line-height: 1.8;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .toc-items a:hover { color: var(--rising-sun); }
+  .toc-badge {
+    display: inline-block;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 1px 6px;
+    border-radius: 8px;
+    vertical-align: middle;
+  }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    background: var(--tide);
+    padding: 28px 48px;
+    text-align: center;
+  }
+  .page-footer p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+  }
+  .page-footer strong {
+    color: #fff;
+  }
+
+  /* ── SMOOTH SCROLLING ── */
+  html { scroll-behavior: smooth; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; max-width: 100%; }
+    .sub-policy { break-inside: avoid; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .header, .hero, .overview, .policy-group-header, .sub-policy, .toc, .page-footer {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    .hero h1 { font-size: 26px; }
+    .policy-group-header h2 { font-size: 22px; }
+    .sub-policy-head { flex-direction: column; gap: 8px; }
+    .legend { gap: 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-brand">
+      <div class="header-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 143.6863 144.6559">
+          <defs>
+            <linearGradient id="lg1" x1="126.1784" y1="100.799" x2="9.7728" y2="33.5922" gradientUnits="userSpaceOnUse">
+              <stop offset=".0162" stop-color="#faefeb" stop-opacity="0"/>
+              <stop offset=".9994" stop-color="#faefeb"/>
+            </linearGradient>
+            <linearGradient id="lg2" x1="0" y1="131.5712" x2="143.6863" y2="131.5712" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#95d4f2"/>
+              <stop offset="1" stop-color="#faefeb"/>
+            </linearGradient>
+          </defs>
+          <circle cx="67.9756" cy="67.1956" r="67.1956" style="fill: url(#lg1);"/>
+          <path d="m0,141.9017c20.7364-13.8687,46.1056-19.3611,70.7397-20.563,24.7836-.8068,49.7907,3.3736,72.9466,12.1462-23.8991-5.6238-48.2763-9.1133-72.7977-8.1673-24.3282,1.0369-48.947,5.7088-70.8886,16.5841h0Z" style="fill: url(#lg2);"/>
+          <path d="m103.1918,66.6996c-6.3944-.6934-12.7728-1.0066-17.6165-1.2011-.3666-.0136-.7333-.0233-1.1004-.034l-.8189-.0243c-1.3805-.0467-2.7615-.0914-4.1415-.1245-.7596-.0185-1.5191-.0321-2.2787-.0457l-2.4109-.0477c-.3598-.0049-.6565-.2042-.7926-.5339-.1371-.3297-.0686-.6808.1828-.9395,2.5437-2.6151,5.0348-5.2381,7.4059-7.7978,3.2813-3.5595,7.5663-8.288,11.6067-13.3043.1595-.1974.1444-.4843-.0355-.6642-.1794-.1789-.4663-.1955-.6642-.036-5.0163,4.038-9.7458,8.322-13.3057,11.6043-2.5359,2.3496-5.1481,4.8296-7.7633,7.3708-.2606.2529-.6137.32-.9453.1809-.3297-.1391-.5271-.4367-.5286-.7975-.018-5.3334-.0579-5.9218-.1191-6.8116-.0511-.7508-.1216-1.7788-.2062-6.4372-.2694-14.7787-.6351-26.1427-1.1875-36.8484-.0136-.2655-.2319-.4727-.497-.4727s-.4834.2072-.497.4727c-.5505,10.6707-.9171,22.0347-1.1904,36.8484-.0846,4.6516-.1541,5.6806-.2052,6.4314-.0598.887-.0992,1.4734-.1167,6.8126-.0015.3608-.1989.6594-.5286.7975-.3321.14-.6856.072-.9458-.1809-2.6035-2.5315-5.2147-5.0095-7.7608-7.366-3.5585-3.2833-8.287-7.5702-13.3082-11.6043-.1984-.1595-.4843-.143-.6642.036-.1794.1799-.1945.4658-.0355.6642,4.0618,5.0494,8.3351,9.7643,11.6048,13.3082,2.3958,2.584,4.886,5.206,7.401,7.7929.2509.2587.32.6088.1828.9385-.1362.3297-.4328.5291-.7941.5339l-1.7044.034c-1.0294.0175-2.0584.035-3.0878.0603-1.2706.0301-2.5412.072-3.8114.1138l-.887.0263c-.4172.0107-.8344.0224-1.2526.0379-4.8286.1945-11.1949.5067-17.6155,1.2069-.2524.0272-.4415.2402-.4435.4911-.0029.2548.1882.4717.4435.4999,6.4333.7012,12.7937,1.0144,17.6165,1.2079.4172.0156.8344.0272,1.2517.0379l.887.0263c1.2701.0418,2.5403.0827,3.8114.1138,1.0299.0243,2.0589.0428,3.0878.0603l1.7053.0331c.3603.0049.6569.2042.7931.5339.1371.3297.0681.6808-.1828.9395-2.515,2.5869-5.0052,5.2089-7.4015,7.7939-3.2643,3.5361-7.5328,8.2452-11.6043,13.3072-.159.1984-.1439.4843.036.6642.1794.1789.4658.1965.6638.036,5.0358-4.0477,9.7575-8.3278,13.3087-11.6053,2.5252-2.337,5.1364-4.815,7.7604-7.366.2606-.2519.6137-.318.9453-.1809.3297.1391.5276.4376.5291.7985.0175,5.3392.0569,25.9257.1167,26.8126.0511.7508.1206,1.7797.2052,6.4314.2733,14.8137.6399,26.1777,1.1904,36.8484.0136.2655.2319.4727.497.4727s.4834-.2072.497-.4727c.5524-10.7057.9181-22.0698,1.1875-36.8484.0846-4.6584.1551-5.6864.2062-6.4372.0613-.8899.1011-21.4783.1191-26.8116.0015-.3608.1989-.6594.5286-.7985.3321-.14.6852-.0729.9453.1809,2.6151,2.5412,5.2274,5.0212,7.7642,7.3708,3.5561,3.2804,8.2826,7.5624,13.3048,11.6053.1984.1605.4848.143.6642-.036.1799-.1799.195-.4668.0355-.6642-4.0404-5.0163-8.3254-9.7448-11.6077-13.3053-2.3633-2.551-4.8544-5.1749-7.4049-7.7978-.2509-.2587-.32-.6098-.1833-.9385.1366-.3297.4333-.53.7936-.5349l2.1974-.0428c.8305-.0146,1.6611-.0301,2.4912-.0506,1.3805-.0331,2.7615-.0778,4.142-.1245l.8301-.0243c.3637-.0097.7265-.0195,1.0907-.0331,4.8476-.1955,11.2304-.5096,17.6151-1.2021.1201-.0126.2256-.0681.3034-.1498.0807-.0827.1332-.1945.14-.319.0141-.2645-.1809-.494-.4435-.5223Z" style="fill: #cc9146;"/>
+        </svg>
+      </div>
+      <div class="header-name">Hope Rises<br>International</div>
+    </div>
+    <div class="header-label">Board Governance<br>Working Document</div>
+  </div>
+  <div class="divider"></div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Policy 4.0 &mdash; Governance Process</div>
+    <h1>Spring Monitoring Cycle Walkthrough</h1>
+    <div class="hero-sub">32 Sub-Policies &nbsp;|&nbsp; 6 Policy Groups &nbsp;|&nbsp; Policies 4.2 &ndash; 4.7</div>
+    <div class="hero-meta">May 2026 Board Meeting &nbsp;|&nbsp; Working Document</div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div class="overview">
+    <h2>Schedule Simplification Review</h2>
+    <p><strong>What It Is:</strong> A review of all 57 Policy 4.0 self-monitoring sub-reports analyzed by Claude. Two deliverables: a recommended reporting schedule and a simplification analysis.</p>
+    <p><strong>Reporting Schedule:</strong> Divide 57 reports into Spring (32 reports, Policies 4.2&ndash;4.7) and Fall (25 reports, Policies 4.1, 4.8&ndash;4.11) to balance Board agendas.</p>
+    <p><strong>Simplification:</strong> Identify reports that can be streamlined or consolidated without losing governance value.</p>
+
+    <div class="flag-legend">
+      <h3>Simplification Flag Types</h3>
+      <p><strong>OE</strong> = Over-Engineered &mdash; Interpretation too complex; recommended for simplification.</p>
+      <p><strong>OL</strong> = Overlap &mdash; Data point already covered in another report; a single "home report" designated.</p>
+      <p><strong>OL1</strong> = One-Liner &mdash; Brief confirmation most years; rarely requires substantive discussion.</p>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green-easy)"></div> Easy</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--amber-medium)"></div> Medium</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--red-discussion)"></div> Discussion</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--purple-flag)"></div> Flag</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--slate-data)"></div> Data Needed</div>
+    </div>
+  </div>
+
+  <!-- HOW THIS WORKS -->
+  <div class="overview" style="background:#fff; border-bottom: 1px solid rgba(30,87,115,0.08);">
+    <h2>How This Works</h2>
+    <p>Each section covers one sub-policy from the Spring monitoring set. <strong>Key Evidence</strong> shows the abbreviated interpretation&mdash;what the Board looks for. <strong>Discussion Prompts</strong> appear on policies rated Medium or Discussion to help generate conversation.</p>
+    <p>Easy policies show key evidence and a True/False footer only&mdash;no discussion prompts needed. Full policy text is in the monitoring reports on each board member's screen for reference.</p>
+    <p>Everything discussed gets recorded, minuted, and presented as a policy monitoring evaluation.</p>
+  </div>
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc">
+    <h2>Navigation</h2>
+
+    <div class="toc-group">
+      <div class="toc-group-title"><a href="#g42">4.2 &mdash; Board Job Description</a></div>
+      <div class="toc-items">
+        <a href="#p421">4.2.1 Board as Link to Ownership <span class="toc-badge" style="background:var(--amber-medium)">MED</span></a><br>
+        <a href="#p422">4.2.2 Policy Addresses All Four Categories <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a><br>
+        <a href="#p423">4.2.3 Board Monitors CEO Performance <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a>
+      </div>
+    </div>
+
+    <div class="toc-group">
+      <div class="toc-group-title"><a href="#g43">4.3 &mdash; Agenda Planning</a></div>
+      <div class="toc-items">
+        <a href="#p431">4.3.1 Annual Policy Review Agenda <span class="toc-badge" style="background:var(--amber-medium)">MED</span></a><br>
+        <a href="#p432">4.3.2 Agenda Development Starts in Spring <span class="toc-badge" style="background:var(--amber-medium)">MED</span></a><br>
+        <a href="#p433">4.3.3 Board Meets 3x/Year <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a><br>
+        <a href="#p434">4.3.4 CEO Monitoring on the Agenda <span class="toc-badge" style="background:var(--red-discussion)">DISC</span></a><br>
+        <a href="#p435">4.3.5 CEO Contract Review in Spring <span class="toc-badge" style="background:var(--purple-flag)">FLAG</span></a><br>
+        <a href="#p436">4.3.6 Board Monitors/Amends Policy <span class="toc-badge" style="background:var(--red-discussion)">DISC</span></a><br>
+        <a href="#p437">4.3.7 Reserve/Endowment Transfers <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a>
+      </div>
+    </div>
+
+    <div class="toc-group">
+      <div class="toc-group-title"><a href="#g44">4.4 &mdash; Chairperson's Role</a></div>
+      <div class="toc-items">
+        <a href="#p441">4.4.1 Chair Ensures Board Follows Its Rules <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a><br>
+        <a href="#p442">4.4.2 Chair Leads Governance Decisions <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a><br>
+        <a href="#p443">4.4.3 Ad Hoc Committees; CEO Succession <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a>
+      </div>
+    </div>
+
+    <div class="toc-group">
+      <div class="toc-group-title"><a href="#g45">4.5 &mdash; Board Code of Conduct</a></div>
+      <div class="toc-items">
+        <a href="#p451">4.5.1 Un-conflicted Loyalty; COI Attestation <span class="toc-badge" style="background:var(--amber-medium)">MED</span></a><br>
+        <a href="#p452">4.5.2 Conflict of Interest; Recusal <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a><br>
+        <a href="#p453">4.5.3 No Individual Authority <span class="toc-badge" style="background:var(--amber-medium)">MED</span></a><br>
+        <a href="#p454">4.5.4 Confidentiality <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a><br>
+        <a href="#p455">4.5.5 Dispute Resolution <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a>
+      </div>
+    </div>
+
+    <div class="toc-group">
+      <div class="toc-group-title"><a href="#g46">4.6 &mdash; Individual Responsibilities</a></div>
+      <div class="toc-items">
+        <a href="#p461">4.6.1 Meeting Attendance <span class="toc-badge" style="background:var(--slate-data)">DATA</span></a><br>
+        <a href="#p462">4.6.2 Preparation, Participation &amp; Punctuality <span class="toc-badge" style="background:var(--red-discussion)">DISC</span></a><br>
+        <a href="#p463">4.6.3 CEO Accountable to Board as Whole <span class="toc-badge" style="background:var(--slate-data)">DATA</span></a><br>
+        <a href="#p464">4.6.4 Volunteerism <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a><br>
+        <a href="#p465">4.6.5 Annual Financial Contribution <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a><br>
+        <a href="#p466">4.6.6 Continuing Education <span class="toc-badge" style="background:var(--red-discussion)">DISC</span></a><br>
+        <a href="#p467">4.6.7 Field Visit (First Term) <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a><br>
+        <a href="#p468">4.6.8 Prayer Commitment <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a>
+      </div>
+    </div>
+
+    <div class="toc-group">
+      <div class="toc-group-title"><a href="#g47">4.7 &mdash; Board Committee Principles</a></div>
+      <div class="toc-items">
+        <a href="#p471">4.7.1 Committees Support Governance, Not Staff <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a><br>
+        <a href="#p472">4.7.2 No Unauthorized Committee Action <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a><br>
+        <a href="#p473">4.7.3 No Authority Over Staff <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a><br>
+        <a href="#p474">4.7.4 No Self-Monitoring <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a><br>
+        <a href="#p475">4.7.5 Committees Used Sparingly <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a><br>
+        <a href="#p476">4.7.6 Policy Applies to All Board-Formed Groups <span class="toc-badge" style="background:var(--green-easy)">EASY</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- POLICY 4.2 — BOARD JOB DESCRIPTION                       -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <div class="policy-group-header" id="g42">
+    <div class="policy-group-number">Policy 4.2</div>
+    <h2>Board Job Description</h2>
+    <div class="policy-group-subtitle">Board-Management Connection</div>
+    <div class="policy-group-context">The job of the Board is to represent God and those who share a demonstrated commitment to HRI's stated Ends in determining and demanding appropriate organizational performance.</div>
+    <div class="policy-group-count">3 sub-policies in this group</div>
+  </div>
+
+  <!-- 4.2.1 -->
+  <div class="sub-policy" id="p421">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.2.1</div>
+        <div class="sub-policy-title">Board as Link to Ownership</div>
+      </div>
+      <span class="badge badge--medium">Medium</span>
+    </div>
+    <div class="sub-policy-context">The Board is the link between the organization and the Ownership. This policy ensures the Board maintains periodic and appropriate engagement with those who share a demonstrated commitment to HRI's Ends.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Owner perspectives gathered through any channel and presented to the Board</li>
+        <li>Board engagement with Owners through events, field visits, or outreach</li>
+        <li>Board deliberation on at least one issue that expressly considered Owner values (reflected in minutes)</li>
+        <li>Standard: periodic and appropriate engagement&mdash;at least one of the above</li>
+      </ul>
+    </div>
+
+    <div class="discussion-box">
+      <h4>Discussion Prompts</h4>
+      <ul>
+        <li>Did any of these evidence criteria actually happen this year? Which ones?</li>
+        <li>Are there gaps in Owner engagement that the Board should address going forward?</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Does the CEO have evidence? Does the board member have evidence?</div>
+  </div>
+
+  <!-- 4.2.2 -->
+  <div class="sub-policy" id="p422">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.2.2</div>
+        <div class="sub-policy-title">Policy Addresses All Four Categories</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">Board Policy must address each category of organizational decision: Ends (what good, for whom, at what cost), Executive Limitations (constraints on executive authority), Governance Process (how the Board operates), and Board/CEO Linkage (how power is delegated and monitored).</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Policy manual is current and covers all four categories (Ends, ELs, GP, B/CEO Linkage)</li>
+        <li>Annual review cycle completed by fiscal year-end; change log on file</li>
+        <li>Monitoring reports and minutes demonstrate active policy use</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+  <!-- 4.2.3 -->
+  <div class="sub-policy" id="p423">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.2.3</div>
+        <div class="sub-policy-title">Board Monitors CEO Performance</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">The Board actively monitors CEO performance, measured by compliance with Ends policy (4.2.2.1) and Executive Limitations (4.2.2.2). This ensures accountability flows through the policy framework, not ad hoc evaluation.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Board-approved monitoring schedule completed for the year</li>
+        <li>Any exceptions or non-compliance findings noted and addressed</li>
+        <li>Monitoring reports on file and accepted by the Board</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- POLICY 4.3 — AGENDA PLANNING                              -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <div class="policy-group-header" id="g43">
+    <div class="policy-group-number">Policy 4.3</div>
+    <h2>Agenda Planning</h2>
+    <div class="policy-group-subtitle">Board Process</div>
+    <div class="policy-group-context">To do its job effectively, the Board will follow an agenda that completes a review of its Policy annually and continually improves Board performance through Board education and enriched input and deliberation.</div>
+    <div class="policy-group-count">7 sub-policies in this group</div>
+  </div>
+
+  <!-- 4.3.1 -->
+  <div class="sub-policy" id="p431">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.3.1</div>
+        <div class="sub-policy-title">Board Follows Annual Policy Review Agenda</div>
+      </div>
+      <span class="badge badge--medium">Medium</span>
+    </div>
+    <div class="sub-policy-context">The policy review cycle concludes each year as of the last day of the fiscal year (June 30) so that administrative planning and budgeting can be based on accomplishing a one-year segment of the Board's most recent statement of Ends and Executive Limitations.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Annual policy review plan approved; completion tracked by FY end (June 30)</li>
+        <li>Board education plan for the year (topics and dates)</li>
+        <li>Change log entries for revised or affirmed policies</li>
+      </ul>
+    </div>
+
+    <div class="discussion-box">
+      <h4>Discussion Prompts</h4>
+      <ul>
+        <li>Is the review cycle on track to complete by June 30? Any gaps?</li>
+        <li>What governance education was offered this year, and was it sufficient?</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Does the CEO have evidence? Does the board member have evidence?</div>
+  </div>
+
+  <!-- 4.3.2 -->
+  <div class="sub-policy" id="p432">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.3.2</div>
+        <div class="sub-policy-title">Agenda Development Starts in Spring</div>
+      </div>
+      <span class="badge badge--medium">Medium</span>
+    </div>
+    <div class="sub-policy-context">The review cycle starts with the Board's development of its agenda for the following year. Methods of gaining Ownership input and governance education are assembled during spring. The Chair prepares and circulates a tentative agenda; directors are encouraged to recommend matters for Board consideration at least 20 days prior to scheduled meetings.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Preliminary FY agenda and monitoring schedule developed in spring; finalized in fall</li>
+        <li>Owner-input and Board education components included in the plan</li>
+        <li>Chair's tentative agenda circulated; director input received &ge;20 days prior</li>
+      </ul>
+    </div>
+
+    <div class="discussion-box">
+      <h4>Discussion Prompts</h4>
+      <ul>
+        <li>Has next year's agenda development begun? Who is leading it?</li>
+        <li>Are there gaps in how Owner input or governance education feeds into agenda planning?</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Does the CEO have evidence? Does the board member have evidence?</div>
+  </div>
+
+  <!-- 4.3.3 -->
+  <div class="sub-policy" id="p433">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.3.3</div>
+        <div class="sub-policy-title">Board Meets 3x/Year, Once in Spring</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">The Board will generally meet three times a year: once in the spring, once in the fall (annual meeting), and once via teleconference. Additional meetings may be scheduled as required.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Spring meeting held [date]; fall annual meeting held [date]; teleconference held [date]</li>
+        <li>Any additional meetings duly called and minuted</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+  <!-- 4.3.4 -->
+  <div class="sub-policy" id="p434">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.3.4</div>
+        <div class="sub-policy-title">CEO Monitoring on the Agenda</div>
+      </div>
+      <span class="badge badge--discussion">Discussion</span>
+    </div>
+    <div class="sub-policy-context">CEO monitoring will be included on the agenda, particularly if monitoring reports show policy violations or if policy criteria are to be debated. This ensures the Board's oversight role is explicit in every meeting agenda.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Monitoring reports were on the agenda for each meeting</li>
+        <li>Instances of potential non-compliance or interpretation questions explicitly discussed</li>
+      </ul>
+    </div>
+
+    <div class="discussion-box">
+      <h4>Discussion Prompts</h4>
+      <ul>
+        <li>Is the CEO drafting the board agenda taking the place of the Board's own agenda planning?</li>
+        <li>Are monitoring reports getting meaningful deliberation time, or are they routine sign-offs?</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Does the CEO have evidence? Does the board member have evidence?</div>
+  </div>
+
+  <!-- 4.3.5 -->
+  <div class="sub-policy" id="p435">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.3.5</div>
+        <div class="sub-policy-title">CEO Contract Review in Spring</div>
+      </div>
+      <span class="badge badge--flag">Flag</span>
+    </div>
+    <div class="sub-policy-context">CEO contract renewal and/or remuneration will be decided during the spring meeting after a review of monitoring reports received over the past year. Links compensation decisions to demonstrated Ends achievement and EL compliance.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Spring agenda included CEO contract/compensation item</li>
+        <li>Board decision recorded in minutes based on Ends results and EL compliance</li>
+      </ul>
+    </div>
+
+    <div class="flag-box">
+      <p>FLAG: Possibly misplaced in this section&mdash;NGC to consider removing or relocating. Does the contract approval at spring meeting satisfy ECFA requirements?</p>
+    </div>
+
+    <div class="discussion-box">
+      <h4>Discussion Prompts</h4>
+      <ul>
+        <li>Is this policy still appropriately placed in 4.3 (Agenda Planning)?</li>
+        <li>Does the contract approval at spring meeting satisfy ECFA requirements?</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Does the CEO have evidence? Does the board member have evidence?</div>
+  </div>
+
+  <!-- 4.3.6 -->
+  <div class="sub-policy" id="p436">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.3.6</div>
+        <div class="sub-policy-title">Board Monitors/Amends Policy; Specific EL Cross-References</div>
+      </div>
+      <span class="badge badge--discussion">Discussion</span>
+    </div>
+    <div class="sub-policy-context">Without limiting the Board's right to monitor and amend any part of its Policy, the Board shall consider certain specific issues that might arise under EL policies 2.3.2, 2.3.3, and 2.10.2. This creates a standing trigger to review specific executive limitations when relevant issues surface.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>CEO updates screened each meeting for triggering issues under 2.3.2, 2.3.3, 2.10.2</li>
+        <li>If triggered, item placed on agenda; otherwise, minutes note no triggering issues</li>
+        <li>Highlights EL policies 2.3.2&ndash;2.3.3 and 2.10.2</li>
+      </ul>
+    </div>
+
+    <div class="discussion-box">
+      <h4>Discussion Prompts</h4>
+      <ul>
+        <li>Are these EL cross-references (2.3.2, 2.3.3, 2.10.2) still worth highlighting, or have they become irrelevant?</li>
+        <li>Has the Board needed to exercise its right to amend policy outside the regular review cycle?</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Does the CEO have evidence? Does the board member have evidence?</div>
+  </div>
+
+  <!-- 4.3.7 -->
+  <div class="sub-policy" id="p437">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.3.7</div>
+        <div class="sub-policy-title">Reserve/Endowment Transfers</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">The Board shall determine the amount of any transfer of Reserves or Endowment to operations. Cross-references EL 2.5.9 (reserve access limits) and 2.6.2 regarding reserve transfers. This ensures Board-level control over major fund movements.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Any reserve/endowment transfers proposed or executed noted in minutes</li>
+        <li>Cross-references EL 2.5.9 and 2.6.2 regarding reserve access limits</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- POLICY 4.4 — CHAIRPERSON'S ROLE                           -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <div class="policy-group-header" id="g44">
+    <div class="policy-group-number">Policy 4.4</div>
+    <h2>Chairperson's Role</h2>
+    <div class="policy-group-subtitle">Chair Governance</div>
+    <div class="policy-group-context">The Chairperson assures the integrity of the Board's process and, secondarily, represents the Board to outside parties when necessary or appropriate.</div>
+    <div class="policy-group-count">3 sub-policies in this group</div>
+  </div>
+
+  <!-- 4.4.1 -->
+  <div class="sub-policy" id="p441">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.4.1</div>
+        <div class="sub-policy-title">Chair Ensures Board Follows Its Own Rules</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">The Chair's job is to assure the Board acts consistently with its own rules and those legitimately imposed from outside. Discussion is limited to Board-level issues (not CEO territory), and deliberation must be fair, open, thorough, timely, and orderly.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Chair attests meetings stayed within Board authority and governance scope</li>
+        <li>Minutes confirm no operational drift into CEO/staff territory</li>
+        <li>Board members affirm fair, open, and orderly facilitation</li>
+        <li>External stakeholder interactions followed Board-stated positions</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+  <!-- 4.4.2 -->
+  <div class="sub-policy" id="p442">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.4.2</div>
+        <div class="sub-policy-title">Chair Leads Governance Decisions and Representation</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">The Chair leads Board decisions on Governance Process and Board/CEO Linkage topics. The Chair is empowered to facilitate meetings (ruling, recognizing) but has no individual authority over Ends or EL policy, and therefore no individual authority to supervise or direct the CEO. The Chair may represent the Board externally on Board-stated positions.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Minutes reflect proper facilitation (recognizing speakers, ruling on motions)</li>
+        <li>No instances of unilateral Ends/EL policy changes or CEO supervision by Chair</li>
+        <li>External communications match Board-stated positions</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+  <!-- 4.4.3 -->
+  <div class="sub-policy" id="p443">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.4.3</div>
+        <div class="sub-policy-title">Ad Hoc Committees; CEO Succession Readiness</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">The Chair may appoint directors and a chairperson for special task force or ad hoc committees. In the event of a need for CEO succession, the Chair will immediately call the board into action and nominate a succession committee to advance a plan agreed upon by the board.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Ad hoc committees: none formed this year (or list with scope and timeline)</li>
+        <li>CEO emergency succession protocol: current and on file, reviewed annually</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- POLICY 4.5 — BOARD CODE OF CONDUCT                        -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <div class="policy-group-header" id="g45">
+    <div class="policy-group-number">Policy 4.5</div>
+    <h2>Board Code of Conduct</h2>
+    <div class="policy-group-subtitle">Directors' Conduct</div>
+    <div class="policy-group-context">The Board commits itself and its directors to lawful, biblical, ethical, and businesslike conduct, including proper use of authority and appropriate decorum when acting as Board directors.</div>
+    <div class="policy-group-count">5 sub-policies in this group</div>
+  </div>
+
+  <!-- 4.5.1 -->
+  <div class="sub-policy" id="p451">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.5.1</div>
+        <div class="sub-policy-title">Un-conflicted Loyalty; Annual COI Attestation</div>
+      </div>
+      <span class="badge badge--medium">Medium</span>
+    </div>
+    <div class="sub-policy-context">Directors must have un-conflicted loyalty to the Ends of the organization. This accountability supersedes any conflicting loyalty to advocacy or interest groups, membership on other boards or staffs, and personal interests. Board directors will annually attest to compliance.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>COI attestations received: count/percent by director (target: 100%)</li>
+        <li>Disclosure log entries (who/what/date) and management steps taken</li>
+        <li>Minutes showing recusals where conflicts existed</li>
+        <li>No substantiated loyalty conflicts</li>
+      </ul>
+    </div>
+
+    <div class="discussion-box">
+      <h4>Discussion Prompts</h4>
+      <ul>
+        <li>Are all COI statements on file? Any outstanding?</li>
+        <li>Were there any situations this year where conflicting loyalties needed to be managed?</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Does the CEO have evidence? Does the board member have evidence?</div>
+  </div>
+
+  <!-- 4.5.2 -->
+  <div class="sub-policy" id="p452">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.5.2</div>
+        <div class="sub-policy-title">Conflict of Interest; No Self-Dealing; Recusal</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">Directors must avoid conflict of interest with respect to fiduciary responsibility. No self-dealing or private business between directors and the organization. When a director has an unavoidable conflict, they must absent themselves from both deliberation and vote. Directors must not use their positions to obtain employment for themselves, family, or close associates.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Related-party/procurement log: any director-linked vendors handled transparently</li>
+        <li>Recusal tracker: director, matter, date; confirmation of absenting from discussion and vote</li>
+        <li>No director or close associate employment by HRI</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+  <!-- 4.5.3 -->
+  <div class="sub-policy" id="p453">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.5.3</div>
+        <div class="sub-policy-title">Directors Do Not Exercise Individual Authority</div>
+      </div>
+      <span class="badge badge--medium">Medium</span>
+    </div>
+    <div class="sub-policy-context">Board directors may not attempt to exercise individual authority over HRI or the staff except as explicitly set forth in Board policies. Directors' interactions with the CEO/staff must recognize the lack of individual authority. Interactions with the public must recognize that no director speaks for the Board except on explicitly-stated Board decisions. Outside of appropriately called Board discussion, directors will give no consequence or voice to individual judgments of CEO performance.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Zero substantiated instances of unauthorized direction of staff or CEO</li>
+        <li>External remarks align with Board-approved positions or spokesperson protocol</li>
+        <li>CEO evaluation occurs only through Board process; no individual judgments expressed outside meetings</li>
+      </ul>
+    </div>
+
+    <div class="discussion-box">
+      <h4>Discussion Prompts</h4>
+      <ul>
+        <li>Can both the CEO and the Chair attest that no individual director exercised unauthorized authority?</li>
+        <li>Should the CEO be present for this discussion to provide a candid perspective?</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Does the CEO have evidence? Does the board member have evidence?</div>
+  </div>
+
+  <!-- 4.5.4 -->
+  <div class="sub-policy" id="p454">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.5.4</div>
+        <div class="sub-policy-title">Confidentiality</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">Board directors will respect the confidentiality appropriate to issues of a sensitive nature. Directors will sign the Confidentiality Policy upon election.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Confidentiality acknowledgments: 100% on file</li>
+        <li>Breach log: zero incidents (most years: one-line confirmation)</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+  <!-- 4.5.5 -->
+  <div class="sub-policy" id="p455">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.5.5</div>
+        <div class="sub-policy-title">Dispute Resolution Policy</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">In the event of a dispute between directors, officers, or executive staff, the parties should follow the Dispute Resolution Policy (DRP) for mediation or subsequent arbitration. Directors will sign the DRP upon election.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>DRP acknowledgments: 100% on file</li>
+        <li>Dispute cases: none (most years: one-line confirmation)</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- POLICY 4.6 — INDIVIDUAL RESPONSIBILITIES                   -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <div class="policy-group-header" id="g46">
+    <div class="policy-group-number">Policy 4.6</div>
+    <h2>Individual Responsibilities</h2>
+    <div class="policy-group-subtitle">Directors' Individual Commitments</div>
+    <div class="policy-group-context">The Board commits itself to the individual and collective participation of its members to ensure organizational success. Each Board director is expected to participate in the following ways.</div>
+    <div class="policy-group-count">8 sub-policies in this group</div>
+  </div>
+
+  <!-- 4.6.1 -->
+  <div class="sub-policy" id="p461">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.6.1</div>
+        <div class="sub-policy-title">Meeting Attendance</div>
+      </div>
+      <span class="badge badge--data">Data Needed</span>
+    </div>
+    <div class="sub-policy-context">Attendance at Board meetings is required. Board deliberation, decision-making, and monitoring are processes that require wholeness, collaboration, and participation. Directors who miss more than two meetings during any three-year term may be subject to removal from the Board.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>FY2026 attendance table by meeting (Spring, Fall, Teleconference) and by director</li>
+        <li>Board average attendance (target: &ge;90%)</li>
+        <li>Term-level absence tracker: any director approaching/exceeding two absences</li>
+        <li>Attendance data to be compiled before the meeting</li>
+      </ul>
+    </div>
+
+    <div class="discussion-box">
+      <h4>Discussion Prompts</h4>
+      <ul>
+        <li>Is attendance an issue? Are any directors approaching the two-absence threshold?</li>
+        <li>Does the NGC need to have a proactive conversation with any director about attendance?</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Does the CEO have evidence? Does the board member have evidence?</div>
+  </div>
+
+  <!-- 4.6.2 -->
+  <div class="sub-policy" id="p462">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.6.2</div>
+        <div class="sub-policy-title">Preparation, Participation, and Punctuality</div>
+      </div>
+      <span class="badge badge--discussion">Discussion</span>
+    </div>
+    <div class="sub-policy-context">Board directors will prepare for meetings and participate productively in discussions, always within the boundaries of discipline established by the Board. Each member will contribute knowledge, skills, and experience.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Board packets sent &ge;7 days in advance of each meeting</li>
+        <li>Minutes reflect engaged, orderly discussion on policy monitoring/Ends/strategy</li>
+        <li>No pattern of preparation gaps, tardiness, or early departures</li>
+      </ul>
+    </div>
+
+    <div class="discussion-box">
+      <h4>Discussion Prompts</h4>
+      <ul>
+        <li>Is the current "email to CEO&mdash;read, no questions / have questions" process enough to demonstrate preparation?</li>
+        <li>Are there directors who consistently seem underprepared, and how should that be addressed?</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Does the CEO have evidence? Does the board member have evidence?</div>
+  </div>
+
+  <!-- 4.6.3 -->
+  <div class="sub-policy" id="p463">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.6.3</div>
+        <div class="sub-policy-title">CEO Accountable to Board as Whole; Collegial Relationship</div>
+      </div>
+      <span class="badge badge--data">Data Needed</span>
+    </div>
+    <div class="sub-policy-context">The CEO is accountable only to the Board as a whole, and not to individual Board directors. The relationship between the CEO and individual directors, including the Board Chair, is collegial, not hierarchical.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Minutes confirm CEO evaluation handled in Board context (Spring)</li>
+        <li>No instances of individual direction/evaluation of the CEO</li>
+        <li>Cross-references 4.5.3 for individual authority data; 4.1.6 for one-voice data</li>
+      </ul>
+    </div>
+
+    <div class="discussion-box">
+      <h4>Discussion Prompts</h4>
+      <ul>
+        <li>Can we confirm that no individual director attempted to direct or evaluate the CEO outside the Board process?</li>
+        <li>Is the anonymized contribution report ready for the meeting?</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Does the CEO have evidence? Does the board member have evidence?</div>
+  </div>
+
+  <!-- 4.6.4 -->
+  <div class="sub-policy" id="p464">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.6.4</div>
+        <div class="sub-policy-title">Volunteerism Under CEO/Staff Supervision</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">All Board directors are encouraged to volunteer beyond normal meeting times, according to their ability. In view of the CEO's responsibility for operations, any volunteer activity by directors falls under CEO/staff supervision, not governance authority.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Director volunteer engagements: list (or "none")</li>
+        <li>No incidents of governance overstepping in volunteer capacity</li>
+        <li>Most years: one-line confirmation</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+  <!-- 4.6.5 -->
+  <div class="sub-policy" id="p465">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.6.5</div>
+        <div class="sub-policy-title">Annual Financial Contribution (100%)</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">Each Board director is expected to contribute generously within their individual means by making an annual financial contribution to HRI. The demonstration of support, rather than the amount, is of primary importance.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Director giving participation rate for FY2026 (target: 100%)</li>
+        <li>Any directors pending by Q3 and follow-up to achieve 100% by fiscal year-end</li>
+        <li>Amounts remain confidential; Development provides participation confirmation only</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+  <!-- 4.6.6 -->
+  <div class="sub-policy" id="p466">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.6.6</div>
+        <div class="sub-policy-title">Continuing Education (Governance and Disease)</div>
+      </div>
+      <span class="badge badge--discussion">Discussion</span>
+    </div>
+    <div class="sub-policy-context">Each Board director is encouraged to make appropriate annual efforts toward continuing education in governance and in the status of leprosy and related diseases around the world. This is the HOME REPORT for education-related overlap across other policies.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Education sessions embedded in FY2026 agendas (topics, dates)</li>
+        <li>Director self-reports of external education (if any)</li>
+        <li>Participation summary: target is each director engages in &ge;1 activity</li>
+        <li>HOME REPORT for education overlap from other policies</li>
+      </ul>
+    </div>
+
+    <div class="discussion-box">
+      <h4>Discussion Prompts</h4>
+      <ul>
+        <li>Beyond board meetings, what else are directors reading or doing for continuing education?</li>
+        <li>Is the current level of governance and disease education sufficient, or should the Board do more?</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Does the CEO have evidence? Does the board member have evidence?</div>
+  </div>
+
+  <!-- 4.6.7 -->
+  <div class="sub-policy" id="p467">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.6.7</div>
+        <div class="sub-policy-title">Field Visit (First Term)</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">Directors are expected to visit the field at least once during their first term. The policy is directional, not prescriptive&mdash;inhibited travel is acknowledged, and Board-approved alternative immersion is acceptable.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>First-term director field visit status (typically 1&ndash;2 directors)</li>
+        <li>If travel is not feasible: Board-approved alternative immersion documented</li>
+        <li>Policy is directional, not prescriptive&mdash;inhibited travel is acknowledged</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+  <!-- 4.6.8 -->
+  <div class="sub-policy" id="p468">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.6.8</div>
+        <div class="sub-policy-title">Prayer Commitment</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">Directors will commit to regularly pray for HRI, its staff, its affiliates, and those around the world affected by leprosy and related diseases. Interpretation wisely avoids measuring private devotional practice.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Board meetings include prayer and devotional elements throughout FY2026</li>
+        <li>Directors affirm the prayer expectation via Board member expectations/acknowledgments</li>
+        <li>Interpretation wisely avoids measuring private devotional life</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- POLICY 4.7 — BOARD COMMITTEE PRINCIPLES                    -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <div class="policy-group-header" id="g47">
+    <div class="policy-group-number">Policy 4.7</div>
+    <h2>Board Committee Principles</h2>
+    <div class="policy-group-subtitle">Committee Operating Norms</div>
+    <div class="policy-group-context">Board committees, when used, will be assigned so as to reinforce the wholeness of the Board's job and so as never to interfere with delegation from the Board to the CEO.</div>
+    <div class="policy-group-count">6 sub-policies in this group</div>
+  </div>
+
+  <!-- 4.7.1 -->
+  <div class="sub-policy" id="p471">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.7.1</div>
+        <div class="sub-policy-title">Committees Support Board Governance, Not Staff</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">Board committees are to help the Board do its job, never to help or advise the staff. Committees ordinarily assist the Board by preparing policy alternatives and implications for Board deliberation. They will normally not have direct dealings with current staff operations.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Committees operated within governance scope; no operational advising</li>
+        <li>Committee roster and scope statements on file</li>
+        <li>Most years: one-line confirmation</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+  <!-- 4.7.2 -->
+  <div class="sub-policy" id="p472">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.7.2</div>
+        <div class="sub-policy-title">No Unauthorized Committee Action for the Board</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">Board committees may not speak or act for the Board except when formally given such authority for specific and time-limited purposes. Expectations and authority will be carefully stated in order not to conflict with authority delegated to the CEO.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>No committee delegations (or list with scope/timeline if any)</li>
+        <li>Any authority to speak/act is narrowly scoped, time-limited, and Board-authorized</li>
+        <li>Most years: brief confirmation</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+  <!-- 4.7.3 -->
+  <div class="sub-policy" id="p473">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.7.3</div>
+        <div class="sub-policy-title">Committees Cannot Exercise Authority Over Staff</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">Because the CEO works for the full Board, the CEO will not be expected to obtain approval of a Board committee before taking an executive action. Committees have no operational authority over staff.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>No committee directed staff this year</li>
+        <li>CEO did not seek committee pre-approval for executive actions</li>
+        <li>One-line confirmation most years</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+  <!-- 4.7.4 -->
+  <div class="sub-policy" id="p474">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.7.4</div>
+        <div class="sub-policy-title">Committees Don't Monitor Areas They Created Policy For</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">Committees should avoid over-identification with organizational parts rather than the whole. A committee that helped the Board create policy on a topic will not be used to monitor organizational performance on that same subject.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Confirmed via policy-origin vs. monitor assignment review</li>
+        <li>Monitoring remains a full-Board function via standard methods</li>
+        <li>Most years: one statement or brief table</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+  <!-- 4.7.5 -->
+  <div class="sub-policy" id="p475">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.7.5</div>
+        <div class="sub-policy-title">Committees Used Sparingly; Ad Hoc with Sunset Dates</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">Committees will be used sparingly, ordinarily in an ad hoc capacity, and will exist only for a specified purpose and time period, other than the Board Standing Committees as set forth in Policy 4.8.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Standing committees: NGC, Audit (ongoing)</li>
+        <li>Ad hoc committees: list with start/end dates (or "none active")</li>
+        <li>Only necessary committees formed; clear scope, deliverables, and sunset dates</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+  <!-- 4.7.6 -->
+  <div class="sub-policy" id="p476">
+    <div class="sub-policy-head">
+      <div>
+        <div class="sub-policy-number">4.7.6</div>
+        <div class="sub-policy-title">Policy Applies to All Board-Formed Groups</div>
+      </div>
+      <span class="badge badge--easy">Easy</span>
+    </div>
+    <div class="sub-policy-context">This policy applies to any group formed by Board action, whether or not it is called a committee and regardless of whether the group includes Board members. It does not apply to committees formed under the authority of the CEO.</div>
+
+    <div class="evidence-box">
+      <h4>Key Evidence</h4>
+      <ul>
+        <li>Any Board-formed groups (task forces, working groups, advisory panels) followed 4.7 principles</li>
+        <li>CEO-formed management groups remain operational and separate from Board governance</li>
+        <li>Most years: "No additional Board-formed groups beyond standing committees"</li>
+      </ul>
+    </div>
+
+    <div class="footer-prompt">True or false? Evidence to support?</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- FOOTER -->
+  <div class="page-footer">
+    <p><strong>Hope Rises International</strong> &mdash; Board Governance Working Document</p>
+    <p>Policy 4.0 Spring Monitoring Cycle &nbsp;|&nbsp; May 2026 Board Meeting</p>
+    <p style="margin-top: 8px; font-size: 11px;">This document is for internal Board use. Full policy text is available in the Policy Manual (Revised October 23, 2025).</p>
+  </div>
+
+</div>
+</body>
+</html>
