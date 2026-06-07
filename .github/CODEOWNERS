@@ -1,3 +1,4 @@
-# HRI gate owner — general gate (non-Salesforce production + shared infrastructure).
-# Auto-requested via CODEOWNERS; enforced once "Require review from Code Owners" is on.
-* @ccalvert-hri
+# HRI gate owners — BOTH owners are listed so they can approve for each other
+# (GitHub forbids self-approval). EITHER approval satisfies the gate.
+# PRIMARY for this repo: Craig (general / non-Salesforce / shared infra). Bekah = backup / cross-cover.
+* @ccalvert-hri @bschwanbeck-HRI
