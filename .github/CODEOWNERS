@@ -1,0 +1,3 @@
+# HRI gate owner — general gate (non-Salesforce production + shared infrastructure).
+# Auto-requested via CODEOWNERS; enforced once "Require review from Code Owners" is on.
+* @ccalvert-hri
