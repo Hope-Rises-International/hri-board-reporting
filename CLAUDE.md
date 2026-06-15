@@ -25,10 +25,11 @@ This block is mandatory and identical across every HRI repo. If it is missing fr
 
 - **Stack:** Static HTML (no build step)
 - **Hosting:** GitHub Pages — `https://hope-rises-international.github.io/hri-board-reporting/`
-- **Publisher:** Kelly (operator). Kelly authors/adds each edition; merge requires a CODEOWNER approval (see below).
-- **Update model:** `main` is **branch-protected — no direct pushes.** Add a new dated `board-update-<month>-<year>.html` file plus a matching newest-first card in `index.html`, push a branch, open a PR, and get a CODEOWNER to approve & merge. GitHub Pages rebuilds automatically on merge; the Board Governance platform's `/updates` tab auto-discovers the new file within its 5-minute cache (no app redeploy).
+- **Publisher:** Kelly (operator) authors/adds each edition.
+- **Update model:** Per the org-wide rails, the PR/approval gate is **PAUSED since 2026-06-10 (Bill)** — **direct commit + push to `main` is allowed**; no PR or CODEOWNER approval is required. Add a new dated `board-update-<month>-<year>.html` file plus a matching newest-first card in `index.html`, commit, and push to `main`. GitHub Pages rebuilds automatically; the Board Governance platform's `/updates` tab auto-discovers the new file within its 5-minute cache (no app redeploy).
+- **If a push to `main` is rejected** (`GH006 ... protected branch`), residual branch protection / a ruleset is still live on this repo (not yet removed under the pause) — fall back to a PR, or ask Bill/Craig to remove the protection.
 - **Filename convention:** `board-update-<month>-<year>.html` (lowercase, e.g. `board-update-june-2026.html`). The governance platform derives the title/date from this slug via regex `^board-update-(.+?)\.html$`, so the slug must be correct.
-- **CODEOWNERS / approval:** `* @ccalvert-hri @bschwanbeck-HRI` — Craig (primary) or Bekah (backup) must approve every PR. GitHub forbids self-approval, so whoever authors a PR needs the other owner (or Craig/Bekah) to approve it.
+- **CODEOWNERS (for gate revival):** `* @ccalvert-hri @bschwanbeck-HRI` — Craig (primary) / Bekah (backup); self-approval is forbidden, so a PR author needs the other owner. Not enforced while the gate is paused; re-applies when the banner is removed from `hri-template-repository/RESTRUCTURE-RULES.md`.
 - **Start date:** 2026-03-14
 
 ## Stack Learnings (canonical source)
@@ -56,8 +57,9 @@ Do NOT create a local `learnings.md` or `hri-stack-learnings.md` in this repo. I
 
 **[2026-06-15 | Kelly | June board update + branch protection / PR workflow]**
 - **Changed:** Published the June 2026 board update (`board-update-june-2026.html`) — Paul Saunderson retirement lead story, embedded LepVax webinar executive summary (attributed to Board Chair Neal Joseph), year-end financial direction, FY2027 budget-approval notice, fundraising, and prayer requests. Added the newest-first June card to `index.html`.
-- **Changed:** `main` is now **branch-protected** — direct `git push origin main` is rejected (`GH006: protected branch ... Changes must be made through a pull request`). All edits now go through a PR approved by a CODEOWNER (`@ccalvert-hri` primary, `@bschwanbeck-HRI` backup). Updated "About this project" above to document the current PR-based publish workflow; the old "replace `index.html` and push to main" model no longer applies.
-- **Publisher note:** Kelly is the regular operator who authors/adds board editions. Because GitHub forbids self-approval, Kelly's PRs must be approved by Craig or Bekah before merge.
+- **Changed:** At publish time a direct `git push origin main` was rejected (`GH006: protected branch ... Changes must be made through a pull request`), so the June edition shipped via PR #1 (approved by Craig) and this doc change via PR #2.
+- **Clarified (rails):** `hri-template-repository/RESTRUCTURE-RULES.md` carries a **GATE PAUSED banner dated 2026-06-10 (Bill)** — org-wide, direct push to `main` is allowed and branch protection + CODEOWNERS are being removed per-repo. So the intended model under the pause is **direct commit + push to `main`** (see "About this project"). This repo still reported `protected: true` mid-session (legacy `/protection` 404s → likely a residual ruleset); if a push is rejected, the protection on this repo just hasn't been lifted yet — ask Bill/Craig to remove it.
+- **Publisher note:** Kelly is the regular operator who authors/adds board editions.
 - **Watch out (macOS):** Finder seeds `Icon\r` files throughout the working tree, and a clone here picked them up inside `.git/refs/**`, producing `fatal: bad object refs/.../Icon?` and blocking `git fetch`/`pull`. Fix: delete every file whose name contains a carriage return under `.git/` (and the repo generally) before fetching. Consider adding `Icon?` to `.gitignore` / global excludes.
 
 ---
