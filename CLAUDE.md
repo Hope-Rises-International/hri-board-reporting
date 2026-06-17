@@ -72,13 +72,6 @@ Before beginning work, check the most recent Project Knowledge entry below. If i
 
 **The full protocol lives in one place:** `session-end-protocol.md` in `hri-template-repository`.
 
-At session close, fetch and follow it:
-
-```bash
-gh api /repos/Hope-Rises-International/hri-template-repository/contents/session-end-protocol.md \
-  --jq '.content' | base64 -d > /tmp/session-end-protocol.md
-```
-
-Then read `/tmp/session-end-protocol.md` and execute all steps.
+At session close, read `/tmp/hri-template/session-end-protocol.md` (from the session-start clone) and execute all steps.
 
 This ensures every repo uses the latest protocol without needing per-repo updates.
