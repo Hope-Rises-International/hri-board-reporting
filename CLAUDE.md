@@ -25,10 +25,10 @@ This block is mandatory and identical across every HRI repo. If it is missing fr
 
 - **Stack:** Static HTML (no build step)
 - **Hosting:** GitHub Pages — `https://hope-rises-international.github.io/hri-board-reporting/`
-- **Publisher:** Kelly (operator). Kelly authors/adds each edition; merge requires a CODEOWNER approval (see below).
-- **Update model:** `main` is **branch-protected — no direct pushes.** Add a new dated `board-update-<month>-<year>.html` file plus a matching newest-first card in `index.html`, push a branch, open a PR, and get a CODEOWNER to approve & merge. GitHub Pages rebuilds automatically on merge; the Board Governance platform's `/updates` tab auto-discovers the new file within its 5-minute cache (no app redeploy).
+- **Publisher:** Kelly (operator) authors/adds each edition.
+- **Update model:** Add a new dated `board-update-<month>-<year>.html` file plus a matching newest-first card in `index.html`, commit, and **push directly to `main`**. GitHub Pages rebuilds automatically; the Board Governance platform's `/updates` tab auto-discovers the new file within its 5-minute cache (no app redeploy). *(The PR/CODEOWNER gate is paused org-wide per `hri-template-repository/RESTRUCTURE-RULES.md` — banner dated 2026-06-10 — and this repo's branch protection was removed 2026-06-16, so direct push works. If a push is ever rejected with `GH006 ... protected branch`, protection was re-enabled: fall back to a PR approved by a CODEOWNER.)*
 - **Filename convention:** `board-update-<month>-<year>.html` (lowercase, e.g. `board-update-june-2026.html`). The governance platform derives the title/date from this slug via regex `^board-update-(.+?)\.html$`, so the slug must be correct.
-- **CODEOWNERS / approval:** `* @ccalvert-hri @bschwanbeck-HRI` — Craig (primary) or Bekah (backup) must approve every PR. GitHub forbids self-approval, so whoever authors a PR needs the other owner (or Craig/Bekah) to approve it.
+- **CODEOWNERS (only if the gate is revived):** `* @ccalvert-hri @bschwanbeck-HRI` — Craig (primary) / Bekah (backup); self-approval is forbidden, so a PR author needs the other owner. Not enforced while the gate is paused; re-applies if branch protection is restored and the banner is removed from `hri-template-repository/RESTRUCTURE-RULES.md`.
 - **Start date:** 2026-03-14
 
 ## Stack Learnings (canonical source)
@@ -59,6 +59,12 @@ Do NOT create a local `learnings.md` or `hri-stack-learnings.md` in this repo. I
 - **Changed:** `main` is now **branch-protected** — direct `git push origin main` is rejected (`GH006: protected branch ... Changes must be made through a pull request`). All edits now go through a PR approved by a CODEOWNER (`@ccalvert-hri` primary, `@bschwanbeck-HRI` backup). Updated "About this project" above to document the current PR-based publish workflow; the old "replace `index.html` and push to main" model no longer applies.
 - **Publisher note:** Kelly is the regular operator who authors/adds board editions. Because GitHub forbids self-approval, Kelly's PRs must be approved by Craig or Bekah before merge.
 - **Watch out (macOS):** Finder seeds `Icon\r` files throughout the working tree, and a clone here picked them up inside `.git/refs/**`, producing `fatal: bad object refs/.../Icon?` and blocking `git fetch`/`pull`. Fix: delete every file whose name contains a carriage return under `.git/` (and the repo generally) before fetching. Consider adding `Icon?` to `.gitignore` / global excludes.
+
+**[2026-06-16 | Kelly | LepVax spotlight, August poll banner, gate removed]**
+- **Decided:** Added a reusable time-sensitive board-action component to the June edition — a Rising Sun `.action-bar` (eyebrow + message + white button) for the August board-call scheduling poll (Rallly). After trying it under the masthead, settled it directly above the "From the Field" section, then bumped its font for prominence. Also added the LepVax webinar executive-summary "Strategic Spotlight" card (embedded `.docx` download + YouTube link), attributed to Board Chair Neal Joseph and framed for directors who couldn't attend the webinar.
+- **Changed:** `board-update-june-2026.html` only (the `.action-bar` pattern lives in that file; copy it forward for future editions). Shipped via **direct push to `main`**.
+- **Watch out:** **Branch protection on this repo was removed** — `git push origin main` now succeeds (confirmed 2026-06-16). The org-wide PR/CODEOWNER gate is paused per `hri-template-repository/RESTRUCTURE-RULES.md` (banner dated 2026-06-10). The "About this project" section and the 2026-06-15 entry above still say "branch-protected — no direct pushes" / "CODEOWNER approval required" — that wording is now **stale**. The macOS `Icon\r`-in-`.git/refs` fetch-blocker still recurs (now also lifted to `hri-stack-learnings.md`).
+- **Open:** Correct the stale "no direct pushes" wording in "About this project," and decide what to do with the open doc-fix **PR #3** (predates Bill's recent CLAUDE.md edits; now stale). Separately, in `hri-board-governance`: directors must be provisioned (Admin → 10.4 Roster management, which mints the Clerk invite) and sent the from-Bill welcome email before they can view this update/poll on the platform — not a task in this repo.
 
 ---
 
