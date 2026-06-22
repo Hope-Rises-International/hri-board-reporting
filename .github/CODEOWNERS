@@ -1,4 +1,0 @@
-# HRI gate owners — BOTH owners are listed so they can approve for each other
-# (GitHub forbids self-approval). EITHER approval satisfies the gate.
-# PRIMARY for this repo: Craig (general / non-Salesforce / shared infra). Bekah = backup / cross-cover.
-* @ccalvert-hri @bschwanbeck-HRI
