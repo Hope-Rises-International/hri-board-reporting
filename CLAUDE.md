@@ -66,6 +66,11 @@ Do NOT create a local `learnings.md` or `hri-stack-learnings.md` in this repo. I
 - **Watch out:** **Branch protection on this repo was removed** — `git push origin main` now succeeds (confirmed 2026-06-16). The org-wide PR/CODEOWNER gate is paused per `hri-template-repository/RESTRUCTURE-RULES.md` (banner dated 2026-06-10). The "About this project" section and the 2026-06-15 entry above still say "branch-protected — no direct pushes" / "CODEOWNER approval required" — that wording is now **stale**. The macOS `Icon\r`-in-`.git/refs` fetch-blocker still recurs (now also lifted to `hri-stack-learnings.md`).
 - **Open:** Correct the stale "no direct pushes" wording in "About this project," and decide what to do with the open doc-fix **PR #3** (predates Bill's recent CLAUDE.md edits; now stale). Separately, in `hri-board-governance`: directors must be provisioned (Admin → 10.4 Roster management, which mints the Clerk invite) and sent the from-Bill welcome email before they can view this update/poll on the platform — not a task in this repo.
 
+**[2026-06-22 | Kelly | Poll link → Google Form; gate retired; docs squared away]**
+- **Changed:** Swapped the August board-call poll button from Rallly to the Google Forms availability poll (clean `/viewform` link). Corrected "About this project" to the direct-push model and closed the now-stale doc PR #3 — this **resolves the first two Open items from the entry above**.
+- **Watch out:** The PR/CODEOWNER gate is now **retired** org-wide (Bill, effective 2026-06-18), not merely paused — direct commit + push to `main` is the standing model, and `.github/CODEOWNERS` was deleted from the repo. The macOS `Icon\r`-in-`.git/refs` fetch-blocker still recurs each session; clear carriage-return-named files under `.git/` before fetch (documented in `hri-stack-learnings.md`).
+- **Open:** (Cross-repo, not here) In `hri-board-governance`, directors still need provisioning (Admin → 10.4) + the from-Bill welcome email before they can view the update/poll on the platform.
+
 ---
 
 ## Session Start
